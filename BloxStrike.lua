@@ -1,13 +1,11 @@
--- Working
--- No
+-- Mine
 -- Instances: 57 | Scripts: 5 | Modules: 0 | Tags: 4
 local CollectionService = game:GetService("CollectionService");
 local G2L = {};
 
 -- StarterGui.MainUI
 G2L["1"] = Instance.new("ScreenGui", game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"));
-G2L["1"]["IgnoreGuiInset"] = true;
-G2L["1"]["ScreenInsets"] = Enum.ScreenInsets.DeviceSafeInsets;
+G2L["1"]["DisplayOrder"] = 999999999;
 G2L["1"]["Name"] = [[MainUI]];
 G2L["1"]["ZIndexBehavior"] = Enum.ZIndexBehavior.Sibling;
 G2L["1"]["ResetOnSpawn"] = false;
@@ -676,9 +674,6 @@ task.spawn(C_13);
 -- StarterGui.MainUI.Categories.Container.EquipmentFilter.TerroristsFrame.Terrorists.LocalScript
 local function C_1c()
 local script = G2L["1c"];
-	local button = script.Parent
-	local toggleFrame = button:WaitForChild("Toggle")
-	
 	local Workspace = game:GetService("Workspace")
 	local ctFolder = Workspace:WaitForChild("Characters"):WaitForChild("Terrorists")
 	
@@ -840,6 +835,7 @@ task.spawn(C_35);
 local function C_39()
 local script = G2L["39"];
 	local UserInputService = game:GetService("UserInputService")
+	local RunService = game:GetService("RunService")
 	
 	local categoriesFrame = script.Parent
 	local screenGui = categoriesFrame.Parent
@@ -850,6 +846,8 @@ local script = G2L["39"];
 	local dragInput
 	local dragStart
 	local startPos
+	
+	local isKeyDown = false 
 	
 	local function update(input)
 		local delta = input.Position - dragStart
@@ -887,16 +885,20 @@ local script = G2L["39"];
 		end
 	end)
 	
-	UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
-		if gameProcessedEvent then return end
+	RunService.RenderStepped:Connect(function()
+		if UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
+			if not isKeyDown then
+				isKeyDown = true
 	
-		if input.KeyCode == Enum.KeyCode.LeftControl then
-			screenGui.Enabled = not screenGui.Enabled
+				screenGui.Enabled = not screenGui.Enabled
 	
-			if screenGui.Enabled then
-				categoriesFrame.Position = originalPosition
-				dragging = false 
+				if screenGui.Enabled then
+					categoriesFrame.Position = originalPosition
+					dragging = false 
+				end
 			end
+		else
+			isKeyDown = false
 		end
 	end)
 end;
