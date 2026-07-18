@@ -624,7 +624,6 @@ local script = G2L["13"];
 	
 	local function lockHighlightState(character, highlight)
 		highlight.Enabled = isToggled
-		highlight.FillTransparency = 1
 	
 		local connEnabled = highlight:GetPropertyChangedSignal("Enabled"):Connect(function()
 			if highlight.Enabled ~= isToggled then
@@ -632,14 +631,8 @@ local script = G2L["13"];
 			end
 		end)
 	
-		local connTransparency = highlight:GetPropertyChangedSignal("FillTransparency"):Connect(function()
-			if highlight.FillTransparency ~= 1 then
-				highlight.FillTransparency = 1
-			end
-		end)
-	
 		clearConnections(character)
-		connections[character] = {connEnabled, connTransparency}
+		connections[character] = {connEnabled}
 	end
 	
 	local function setupCharacter(character)
@@ -666,7 +659,6 @@ local script = G2L["13"];
 			local highlight = character:FindFirstChild("Highlight")
 			if highlight and highlight:IsA("Highlight") then
 				highlight.Enabled = isToggled
-				highlight.FillTransparency = 1
 			end
 		end
 	end)
@@ -704,7 +696,6 @@ local script = G2L["1c"];
 	
 	local function lockHighlightState(character, highlight)
 		highlight.Enabled = isToggled
-		highlight.FillTransparency = 1
 	
 		local connEnabled = highlight:GetPropertyChangedSignal("Enabled"):Connect(function()
 			if highlight.Enabled ~= isToggled then
@@ -712,14 +703,8 @@ local script = G2L["1c"];
 			end
 		end)
 	
-		local connTransparency = highlight:GetPropertyChangedSignal("FillTransparency"):Connect(function()
-			if highlight.FillTransparency ~= 1 then
-				highlight.FillTransparency = 1
-			end
-		end)
-	
 		clearConnections(character)
-		connections[character] = {connEnabled, connTransparency}
+		connections[character] = {connEnabled}
 	end
 	
 	local function setupCharacter(character)
@@ -746,7 +731,6 @@ local script = G2L["1c"];
 			local highlight = character:FindFirstChild("Highlight")
 			if highlight and highlight:IsA("Highlight") then
 				highlight.Enabled = isToggled
-				highlight.FillTransparency = 1
 			end
 		end
 	end)
@@ -784,7 +768,6 @@ local script = G2L["24"];
 	
 	local function lockHighlightState(character, highlight)
 		highlight.Enabled = isToggled
-		highlight.FillTransparency = 1
 	
 		local connEnabled = highlight:GetPropertyChangedSignal("Enabled"):Connect(function()
 			if highlight.Enabled ~= isToggled then
@@ -792,14 +775,8 @@ local script = G2L["24"];
 			end
 		end)
 	
-		local connTransparency = highlight:GetPropertyChangedSignal("FillTransparency"):Connect(function()
-			if highlight.FillTransparency ~= 1 then
-				highlight.FillTransparency = 1
-			end
-		end)
-	
 		clearConnections(character)
-		connections[character] = {connEnabled, connTransparency}
+		connections[character] = {connEnabled}
 	end
 	
 	local function setupCharacter(character)
@@ -826,7 +803,6 @@ local script = G2L["24"];
 			local highlight = character:FindFirstChild("Highlight")
 			if highlight and highlight:IsA("Highlight") then
 				highlight.Enabled = isToggled
-				highlight.FillTransparency = 1
 			end
 		end
 	end)
