@@ -1,5 +1,3 @@
--- Mine
--- Instances: 57 | Scripts: 5 | Modules: 0 | Tags: 4
 local CollectionService = game:GetService("CollectionService");
 local G2L = {};
 
@@ -112,21 +110,21 @@ G2L["b"]["HorizontalAlignment"] = Enum.HorizontalAlignment.Center;
 G2L["b"]["SortOrder"] = Enum.SortOrder.LayoutOrder;
 
 
--- StarterGui.MainUI.Categories.Container.EquipmentFilter.HightlightFrame
+-- StarterGui.MainUI.Categories.Container.EquipmentFilter.CounterFrame
 G2L["c"] = Instance.new("Frame", G2L["a"]);
 G2L["c"]["BorderSizePixel"] = 0;
 G2L["c"]["BackgroundColor3"] = Color3.fromRGB(255, 255, 255);
 G2L["c"]["Size"] = UDim2.new(0.9825, 0, 0.2497, 0);
 G2L["c"]["Position"] = UDim2.new(-0, 0, 0, 0);
 G2L["c"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
-G2L["c"]["Name"] = [[HightlightFrame]];
+G2L["c"]["Name"] = [[CounterFrame]];
 G2L["c"]["LayoutOrder"] = 1;
 G2L["c"]["BackgroundTransparency"] = 1;
 
 -- Tags
 CollectionService:AddTag(G2L["c"], [[CategoryFilter]]);
 
--- StarterGui.MainUI.Categories.Container.EquipmentFilter.HightlightFrame.Title
+-- StarterGui.MainUI.Categories.Container.EquipmentFilter.CounterFrame.Title
 G2L["d"] = Instance.new("TextLabel", G2L["c"]);
 G2L["d"]["TextWrapped"] = true;
 G2L["d"]["ZIndex"] = 2;
@@ -146,7 +144,7 @@ G2L["d"]["Name"] = [[Title]];
 G2L["d"]["Position"] = UDim2.new(0, 0, 0.5, 0);
 
 
--- StarterGui.MainUI.Categories.Container.EquipmentFilter.HightlightFrame.CounterTerrorists
+-- StarterGui.MainUI.Categories.Container.EquipmentFilter.CounterFrame.CounterTerrorists
 G2L["e"] = Instance.new("ImageButton", G2L["c"]);
 G2L["e"]["BorderSizePixel"] = 0;
 G2L["e"]["BackgroundColor3"] = Color3.fromRGB(55, 62, 72);
@@ -157,14 +155,14 @@ G2L["e"]["Name"] = [[CounterTerrorists]];
 G2L["e"]["Position"] = UDim2.new(1, 0, 0.5, 0);
 
 
--- StarterGui.MainUI.Categories.Container.EquipmentFilter.HightlightFrame.CounterTerrorists.UIStroke
+-- StarterGui.MainUI.Categories.Container.EquipmentFilter.CounterFrame.CounterTerrorists.UIStroke
 G2L["f"] = Instance.new("UIStroke", G2L["e"]);
 G2L["f"]["Thickness"] = 0.07;
 G2L["f"]["StrokeSizingMode"] = Enum.StrokeSizingMode.ScaledSize;
 G2L["f"]["Color"] = Color3.fromRGB(172, 177, 189);
 
 
--- StarterGui.MainUI.Categories.Container.EquipmentFilter.HightlightFrame.CounterTerrorists.Vignette
+-- StarterGui.MainUI.Categories.Container.EquipmentFilter.CounterFrame.CounterTerrorists.Vignette
 G2L["10"] = Instance.new("ImageLabel", G2L["e"]);
 G2L["10"]["ZIndex"] = 2;
 G2L["10"]["BorderSizePixel"] = 0;
@@ -178,12 +176,12 @@ G2L["10"]["BackgroundTransparency"] = 1;
 G2L["10"]["Name"] = [[Vignette]];
 
 
--- StarterGui.MainUI.Categories.Container.EquipmentFilter.HightlightFrame.CounterTerrorists.UIAspectRatioConstraint
+-- StarterGui.MainUI.Categories.Container.EquipmentFilter.CounterFrame.CounterTerrorists.UIAspectRatioConstraint
 G2L["11"] = Instance.new("UIAspectRatioConstraint", G2L["e"]);
 
 
 
--- StarterGui.MainUI.Categories.Container.EquipmentFilter.HightlightFrame.CounterTerrorists.Toggle
+-- StarterGui.MainUI.Categories.Container.EquipmentFilter.CounterFrame.CounterTerrorists.Toggle
 G2L["12"] = Instance.new("Frame", G2L["e"]);
 G2L["12"]["Visible"] = false;
 G2L["12"]["ZIndex"] = 2;
@@ -196,7 +194,7 @@ G2L["12"]["BorderColor3"] = Color3.fromRGB(0, 0, 0);
 G2L["12"]["Name"] = [[Toggle]];
 
 
--- StarterGui.MainUI.Categories.Container.EquipmentFilter.HightlightFrame.CounterTerrorists.LocalScript
+-- StarterGui.MainUI.Categories.Container.EquipmentFilter.CounterFrame.CounterTerrorists.LocalScript
 G2L["13"] = Instance.new("LocalScript", G2L["e"]);
 
 
@@ -599,7 +597,7 @@ G2L["39"] = Instance.new("LocalScript", G2L["2"]);
 
 
 
--- StarterGui.MainUI.Categories.Container.EquipmentFilter.HightlightFrame.CounterTerrorists.LocalScript
+-- StarterGui.MainUI.Categories.Container.EquipmentFilter.CounterFrame.CounterTerrorists.LocalScript
 local function C_13()
 local script = G2L["13"];
 	local button = script.Parent
@@ -886,13 +884,14 @@ local script = G2L["39"];
 	end)
 	
 	RunService.RenderStepped:Connect(function()
-		if UserInputService:IsKeyDown(Enum.KeyCode.LeftControl) then
+		if UserInputService:IsKeyDown(Enum.KeyCode.RightControl) then
 			if not isKeyDown then
 				isKeyDown = true
 	
 				screenGui.Enabled = not screenGui.Enabled
 	
 				if screenGui.Enabled then
+					
 					categoriesFrame.Position = originalPosition
 					dragging = false 
 				end
