@@ -1,5 +1,3 @@
--- Test
--- Instances: 57 | Scripts: 5 | Modules: 0 | Tags: 4
 local CollectionService = game:GetService("CollectionService");
 local G2L = {};
 
@@ -883,7 +881,8 @@ local script = G2L["39"];
 	end)
 	
 	UserInputService.InputBegan:Connect(function(input, gameProcessed)
-		if input.KeyCode == Enum.KeyCode.RightControl then
+		
+		if not gameProcessed and input.KeyCode == Enum.KeyCode.V then
 			screenGui.Enabled = not screenGui.Enabled
 	
 			if screenGui.Enabled then
