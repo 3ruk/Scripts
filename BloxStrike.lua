@@ -1,3 +1,5 @@
+-- Test
+-- Instances: 57 | Scripts: 5 | Modules: 0 | Tags: 4
 local CollectionService = game:GetService("CollectionService");
 local G2L = {};
 
@@ -833,7 +835,6 @@ task.spawn(C_35);
 local function C_39()
 local script = G2L["39"];
 	local UserInputService = game:GetService("UserInputService")
-	local RunService = game:GetService("RunService")
 	
 	local categoriesFrame = script.Parent
 	local screenGui = categoriesFrame.Parent
@@ -844,8 +845,6 @@ local script = G2L["39"];
 	local dragInput
 	local dragStart
 	local startPos
-	
-	local isKeyDown = false 
 	
 	local function update(input)
 		local delta = input.Position - dragStart
@@ -883,21 +882,14 @@ local script = G2L["39"];
 		end
 	end)
 	
-	RunService.RenderStepped:Connect(function()
-		if UserInputService:IsKeyDown(Enum.KeyCode.RightControl) then
-			if not isKeyDown then
-				isKeyDown = true
+	UserInputService.InputBegan:Connect(function(input, gameProcessed)
+		if input.KeyCode == Enum.KeyCode.RightControl then
+			screenGui.Enabled = not screenGui.Enabled
 	
-				screenGui.Enabled = not screenGui.Enabled
-	
-				if screenGui.Enabled then
-					
-					categoriesFrame.Position = originalPosition
-					dragging = false 
-				end
+			if screenGui.Enabled then
+				categoriesFrame.Position = originalPosition
+				dragging = false
 			end
-		else
-			isKeyDown = false
 		end
 	end)
 end;
