@@ -154,6 +154,7 @@ G2L["11"]["TextWrapped"] = true;
 G2L["11"]["ZIndex"] = 2;
 G2L["11"]["BorderSizePixel"] = 0;
 G2L["11"]["TextSize"] = 16;
+G2L["11"]["TextScaled"] = true;
 G2L["11"]["BackgroundColor3"] = Color3.fromRGB(11, 11, 11);
 G2L["11"]["FontFace"] = Font.new([[rbxasset://fonts/families/LuckiestGuy.json]], Enum.FontWeight.Regular, Enum.FontStyle.Normal);
 G2L["11"]["TextColor3"] = Color3.fromRGB(255, 255, 255);
